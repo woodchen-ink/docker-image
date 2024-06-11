@@ -377,6 +377,7 @@
     <html>
       <head>
         <title>CZL Docker\u955C\u50CF\u670D\u52A1(\u4EC5\u5185\u90E8\u7528)</title>
+        <link rel="shortcut icon" href="https://cdn-r2.czl.net/2023/06/20/649168ec9d6a8.ico">
         <style>
         @font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Thin.woff2') format('woff2');font-weight:100;font-style:normal;font-display:swap}@font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}@font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Bold.woff2') format('woff2');font-weight:bold;font-style:normal;font-display:swap}@font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Regular.woff2') format('woff2');font-weight:normal;font-style:normal;font-display:swap}
         *{

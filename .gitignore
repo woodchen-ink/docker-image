@@ -4,3 +4,5 @@ transpiled
 worker
 wrangler.toml
 !wrangler.toml.sample
+.wrangler/tmp/dev-76tGCa/index.js.map
+.wrangler/tmp/dev-76tGCa/index.js
