@@ -115,7 +115,7 @@ function getHomePageHtml(): string {
           function generateCommands() {
             const imageInput = document.getElementById('imageInput').value;
             const source = getSourceFromImage(imageInput);
-            const imageName = getImageNameFromInput(imageInput);
+            const imageName = getImageNameFromInput(imageInput, source);
             const dockerPullCommand = \`docker pull \${source}/\${imageName}\`;
             const dockerTagCommand = \`docker tag \${source}/\${imageName} \${imageName}\`;
             const dockerRmiCommand = \`docker rmi \${source}/\${imageName}\`;
@@ -140,8 +140,18 @@ function getHomePageHtml(): string {
             }
           }
 
-          function getImageNameFromInput(imageInput) {
-            return imageInput.replace(/^.+?\\//, '');
+          function getImageNameFromInput(imageInput, source) {
+            if (imageInput.startsWith("gcr.io/")) {
+              return imageInput.replace("gcr.io/", "");
+            } else if (imageInput.startsWith("k8s.gcr.io/")) {
+              return imageInput.replace("k8s.gcr.io/", "");
+            } else if (imageInput.startsWith("quay.io/")) {
+              return imageInput.replace("quay.io/", "");
+            } else if (imageInput.startsWith("ghcr.io/")) {
+              return imageInput.replace("ghcr.io/", "");
+            } else {
+              return imageInput;
+            }
           }
 
           function copyToClipboard(elementId) {
@@ -163,7 +173,7 @@ const PROXY_HEADER_ALLOW_LIST: string[] = ["accept", "user-agent", "accept-encod
 
 const validActionNames = new Set(["manifests", "blobs", "tags", "referrers"])
 
-const ORG_NAME_BACKEND:{ [key: string]: string; } = {
+const ORG_NAME_BACKEND: { [key: string]: string; } = {
   "gcr": "https://gcr.io",
   "k8sgcr": "https://k8s.gcr.io",
   "quay": "https://quay.io",
@@ -184,9 +194,9 @@ export async function handleRequest(request: Request): Promise<Response> {
   return handleRegistryRequest(request)
 }
 
-function copyProxyHeaders(inputHeaders: Headers) : Headers {
+function copyProxyHeaders(inputHeaders: Headers): Headers {
   const headers = new Headers;
-  for(const pair of inputHeaders.entries()) {
+  for (const pair of inputHeaders.entries()) {
     if (PROXY_HEADER_ALLOW_LIST.includes(pair[0].toLowerCase())) {
       headers.append(pair[0], pair[1])
     }
@@ -194,7 +204,7 @@ function copyProxyHeaders(inputHeaders: Headers) : Headers {
   return headers;
 }
 
-function orgNameFromPath(pathname: string): string|null {
+function orgNameFromPath(pathname: string): string | null {
   const splitedPath: string[] = pathname.split("/", 3)
   if (splitedPath.length === 3 && splitedPath[0] === "" && splitedPath[1] === "v2") {
     return splitedPath[2].toLowerCase()
@@ -202,7 +212,7 @@ function orgNameFromPath(pathname: string): string|null {
   return null
 }
 
-function hostByOrgName(orgName: string|null): string {
+function hostByOrgName(orgName: string | null): string {
   if (orgName !== null && orgName in ORG_NAME_BACKEND) {
     return ORG_NAME_BACKEND[orgName]
   }
@@ -221,8 +231,8 @@ function rewritePath(orgName: string | null, pathname: string): string {
   if (orgName === null || !(orgName in ORG_NAME_BACKEND)) {
     return pathname
   }
-  
-  const cleanSplitedPath = splitedPath.filter(function(value: string, index: number) {
+
+  const cleanSplitedPath = splitedPath.filter(function (value: string, index: number) {
     return value !== orgName || index !== 2;
   })
   return cleanSplitedPath.join("/")
@@ -236,5 +246,5 @@ async function handleRegistryRequest(request: Request): Promise<Response> {
   const tokenProvider = new TokenProvider()
   const backend = new Backend(host, tokenProvider)
   const headers = copyProxyHeaders(request.headers)
-  return backend.proxy(pathname, {headers: request.headers})
+  return backend.proxy(pathname, { headers: request.headers })
 }
