@@ -2,15 +2,14 @@ function getHomePageHtml(): string {
   return `
     <html>
       <head>
-        <title>CZL Docker镜像服务(仅内部用)</title>
-        <link rel="shortcut icon" href="https://cdn-r2.czl.net/2023/06/20/649168ec9d6a8.ico">
+        <title>Q58 Docker镜像服务</title>
+        <link rel="shortcut icon" href="https://cdn-oracle.czl.net/img/2024/08/66c8417602ba0.ico">
         <style>
-        @font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Thin.woff2') format('woff2');font-weight:100;font-style:normal;font-display:swap}@font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}@font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Bold.woff2') format('woff2');font-weight:bold;font-style:normal;font-display:swap}@font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:'CZL';src:url('https://cdn-r2-cloudflare.czl.net/fonts/CZL/CZL_Sans_SC_Regular.woff2') format('woff2');font-weight:normal;font-style:normal;font-display:swap}
         *{
-        font-family: "CZL", -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Segoe UI,Arial,Roboto,'PingFang SC',miui,'Hiragino Sans GB','Microsoft Yahei',sans-serif ;
+        font-family: system-ui, -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Segoe UI,Arial,Roboto,'PingFang SC',miui,'Hiragino Sans GB','Microsoft Yahei',sans-serif ;
         }  
         body {
-            font-family: "CZL", -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Segoe UI,Arial,Roboto,'PingFang SC',miui,'Hiragino Sans GB','Microsoft Yahei',sans-serif ;
+            font-family: system-ui, -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Segoe UI,Arial,Roboto,'PingFang SC',miui,'Hiragino Sans GB','Microsoft Yahei',sans-serif ;
             margin: 0;
             padding: 0;
             display: flex;
@@ -55,6 +54,7 @@ function getHomePageHtml(): string {
             background-color: #4CAF50;
             color: white;
             padding: 10px 20px;
+            margin: 0 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
