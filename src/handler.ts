@@ -2,12 +2,9 @@ function getHomePageHtml(): string {
   return `
     <html>
       <head>
-        <title>Q58 Docker镜像服务</title>
+        <title>CZL Docker镜像服务</title>
         <link rel="shortcut icon" href="https://cdn-oracle.czl.net/img/2024/08/66c8417602ba0.ico">
-        <style>
-        *{
-        font-family: system-ui, -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Segoe UI,Arial,Roboto,'PingFang SC',miui,'Hiragino Sans GB','Microsoft Yahei',sans-serif ;
-        }  
+        <style> 
         body {
             font-family: system-ui, -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Segoe UI,Arial,Roboto,'PingFang SC',miui,'Hiragino Sans GB','Microsoft Yahei',sans-serif ;
             margin: 0;
